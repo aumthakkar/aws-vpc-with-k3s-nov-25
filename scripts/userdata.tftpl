@@ -1,0 +1,11 @@
+#!/bin/bash
+# Using $TOKEN for extracting instance metadata - Reqd for V2 version of aws cli!! 
+TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600") \
+	&& curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/
+sudo hostnamectl set-hostname ${nodename} &&
+curl -sfL https://get.k3s.io | sh -s - server \
+--datastore-endpoint="mysql://${dbuser}:${dbpassword}@tcp(${db_endpoint})/${dbname}" \
+--write-kubeconfig-mode 644 \
+--tls-san=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-ipv4) \
+--token="th1s1sat0k3n!"
+

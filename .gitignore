@@ -1,0 +1,23 @@
+# Local .terraform directories
+**/.terraform/*
+
+# Ignore .tfvar  files
+*.tfvars
+*.tfvars.json
+
+
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Ignore plan output of command - tf plan -out=tfplan
+*.tfplan*
+
+# Ignore the cryptographic keys
+*key.*
+*key
