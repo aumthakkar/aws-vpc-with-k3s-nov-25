@@ -45,7 +45,7 @@ variable "skip_db_final_snapshot" {
 # Compute
 
 variable "k3s_instance_count" {}
-variable "public_key_path" {}
+variable "public_key" {}
 
 variable "ec2_instance_type" {}
 variable "key_name" {}

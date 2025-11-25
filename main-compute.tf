@@ -16,7 +16,7 @@ data "aws_ami" "ubuntu_ami" {
 
 resource "aws_key_pair" "my_ec2_key" {
   key_name   = var.key_name
-  public_key = file(var.public_key_path)
+  public_key = var.public_key
 
   tags = {
     Name = "${var.name_prefix}-ec2-public-key"
