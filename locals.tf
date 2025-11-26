@@ -3,7 +3,7 @@ locals {
 }
 
 locals {
-  public_cidr_block = var.auto_create_public_subnets ? local.public_cidr : var.public_subnet_cidr_block
+  public_cidr_block = var.auto_create_public_subnets ? local.public_cidr : split(",", var.public_subnet_cidr_block)
 }
 
 locals {
